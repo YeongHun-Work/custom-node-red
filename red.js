@@ -166,7 +166,7 @@ process.env.NODE_RED_HOME = process.env.NODE_RED_HOME || __dirname;
 // }
 
 console.log("[DEBUG]"+ __dirname);
-settingsFile = path.join(__dirname,".node-red","settings.js");
+settingsFile = path.join(__dirname,"lib","settings.js");
 console.log("[DEBUG]"+ settingsFile);
 
 

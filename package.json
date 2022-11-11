@@ -14,7 +14,7 @@
     },
     "bin": {
         "node-red": "./red.js",
-        "node-red-pi": "bin/node-red-pi"
+        "node-red-pi": "lib/node-red-pi"
     },
     "contributors": [
         {
