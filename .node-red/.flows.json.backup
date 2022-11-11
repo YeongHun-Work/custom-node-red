@@ -1,0 +1,1467 @@
+[
+    {
+        "id": "5d2f2ee851b4d5a3",
+        "type": "tab",
+        "label": "Algorithm Manage",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ee5f2b8c76e18d1f",
+        "type": "tab",
+        "label": "Algorithm 01",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6702e8fe7d3328b0",
+        "type": "tab",
+        "label": "Algorithm 02",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "63cdb310c0d66cb9",
+        "type": "tab",
+        "label": "Algorithm 03",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f86d98b1.fb0ee8",
+        "type": "modbus-client",
+        "name": "SWITCHGEAR-PLC",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "tcpHost": "192.168.0.242",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": false,
+        "reconnectTimeout": "50",
+        "parallelUnitIdsAllowed": false
+    },
+    {
+        "id": "a54c8c30f83bce8c",
+        "type": "modbus-client",
+        "name": "SWITCHGEAR-PLC",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "tcpHost": "192.168.0.242",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": false,
+        "reconnectTimeout": "50",
+        "parallelUnitIdsAllowed": false
+    },
+    {
+        "id": "764d770e.9f6108",
+        "type": "MySQLdatabase",
+        "host": "192.168.0.243",
+        "port": "3306",
+        "db": "terra_hmi",
+        "tz": "Asia/Seoul"
+    },
+    {
+        "id": "1e94f613.84df8a",
+        "type": "MySQLdatabase",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "terra_hmi",
+        "tz": "Asia/Seoul"
+    },
+    {
+        "id": "63b6c3db.c9200c",
+        "type": "modbustcp-server",
+        "name": "",
+        "host": "192.168.0.240",
+        "port": "502",
+        "unit_id": "1",
+        "reconnecttimeout": ""
+    },
+    {
+        "id": "9ae432e11e467b14",
+        "type": "http in",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "/api/setAlgorithm",
+        "url": "/api/setAlgorithm",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "0e3ce5904e3ed180",
+                "98dfd70e3fddd1b8"
+            ]
+        ]
+    },
+    {
+        "id": "757e25409cc473bd",
+        "type": "debug",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a28d2361106c7f52",
+        "type": "link out",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Algorithm Switch",
+        "mode": "link",
+        "links": [
+            "789e24d049d66e59"
+        ],
+        "x": 435,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "fc5beed8f0123d3b",
+        "type": "switch",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "",
+        "property": "algorithm",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "a28d2361106c7f52"
+            ],
+            [
+                "cac80fbb472efe8f"
+            ],
+            [
+                "541b8dce0cfc1929"
+            ]
+        ]
+    },
+    {
+        "id": "cac80fbb472efe8f",
+        "type": "link out",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Algorithm Switch",
+        "mode": "link",
+        "links": [
+            "782f0c581f8618af"
+        ],
+        "x": 435,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d36f949f687d34b1",
+        "type": "http response",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 420,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0e3ce5904e3ed180",
+        "type": "function",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Message",
+        "func": "msg.payload = {\n  \"result_cde\": \"200\",\n  \"result_msg\": \"OK\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "d36f949f687d34b1"
+            ]
+        ]
+    },
+    {
+        "id": "541b8dce0cfc1929",
+        "type": "link out",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Algorithm Switch",
+        "mode": "link",
+        "links": [
+            "f55453d281d2b72a"
+        ],
+        "x": 435,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f0b4a214f6b93127",
+        "type": "comment",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "운영 알고리즘 선택 (EMS-CORE > Node-RED)",
+        "info": "",
+        "x": 200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "218f3b9af7d02fe7",
+        "type": "comment",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "실시간 데이터 수집/처리 (EMS-CORE > Node-RED)",
+        "info": "",
+        "x": 210,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "bc76837acd256409",
+        "type": "http in",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "/api/data",
+        "url": "/api/data",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 360,
+        "wires": [
+            [
+                "0c649f811411024b"
+            ]
+        ]
+    },
+    {
+        "id": "0c649f811411024b",
+        "type": "function",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Global",
+        "func": "/**\n * 공장 전역 변수 설정\n * \n */\nglobal.set(\"ems\", msg.payload) ;\nglobal.set(\"algorithm\", msg.payload.algorithm);\n\nmsg.topic = \"[DATA] Get Device Data \";\nmsg.payload = global.get(\"ems.algorithm\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "323c613e11737362",
+                "fc5beed8f0123d3b",
+                "7876700a0b14bd50"
+            ]
+        ]
+    },
+    {
+        "id": "323c613e11737362",
+        "type": "debug",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "bdeb0719cdf39246",
+        "type": "comment",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "운영 알고리즘 01",
+        "info": "",
+        "x": 540,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "cbb9700512a77862",
+        "type": "comment",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "운영 알고리즘 02",
+        "info": "",
+        "x": 540,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "afe5e060c849cefd",
+        "type": "comment",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "운영 알고리즘 03",
+        "info": "",
+        "x": 540,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "16ddaa1a4f4f94b2",
+        "type": "inject",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "INIT",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "fd36ad89d89086cf"
+            ]
+        ]
+    },
+    {
+        "id": "0a02d94e1822823c",
+        "type": "comment",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "글로벌 변수 설정",
+        "info": "",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "01aeda70a0ae076e",
+        "type": "debug",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fd36ad89d89086cf",
+        "type": "function",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Set Global",
+        "func": "\n/**\n * 10진수 -> 16진수 변환\n * @params\n *  - num : 변환 할 값\n */\nglobal.set(\"toHexString\", (num) => {\n    return (num >>> 0).toString(16);\n});\n\n\n/**\n * 16진수 문자열 쪼개기\n * @params\n *  - str : 원 문자열\n */\nglobal.set(\"toSplit\", (hex) => {\n    \n    var result = [];\n    \n    result.push(hex.substring(0, hex.length/2));\n    result.push(hex.substring(hex.length/2, hex.length));\n    \n    return result;\n});\n\n/**\n * 좌측 문자열 채우기\n * @params\n *  - str : 원 문자열\n *  - padLen : 최대 채우고자 하는 길이\n *  - padStr : 채우고자하는 문자(char)\n */\nglobal.set(\"lpad\", (str, padLen, padStr) => {\n    if (padStr.length > padLen) {\n        console.log(\"오류 : 채우고자 하는 문자열이 요청 길이보다 큽니다\");\n        return str;\n    }\n    str += \"\"; // 문자로\n    padStr += \"\"; // 문자로\n    while (str.length < padLen)\n        str = padStr + str;\n    str = str.length >= padLen ? str.substring(0, padLen) : str;\n    return str;\n});\n\nmsg.topic = \"[init] Global Value\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 80,
+        "wires": [
+            [
+                "01aeda70a0ae076e"
+            ]
+        ]
+    },
+    {
+        "id": "7876700a0b14bd50",
+        "type": "function",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Message",
+        "func": "\nmsg.payload = {\n  \"result_cde\": \"200\",\n  \"result_msg\": \"OK\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "4c43807cef4aa4b6"
+            ]
+        ]
+    },
+    {
+        "id": "4c43807cef4aa4b6",
+        "type": "http response",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 500,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "98dfd70e3fddd1b8",
+        "type": "change",
+        "z": "5d2f2ee851b4d5a3",
+        "name": "Set Algorithm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "algorithm",
+                "pt": "global",
+                "to": "payload.algorithm",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "757e25409cc473bd"
+            ]
+        ]
+    },
+    {
+        "id": "789e24d049d66e59",
+        "type": "link in",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "algorithm01",
+        "links": [
+            "a28d2361106c7f52"
+        ],
+        "x": 35,
+        "y": 80,
+        "wires": [
+            [
+                "33d5cdeeee2c9a99",
+                "72eeed8b8f461296"
+            ]
+        ]
+    },
+    {
+        "id": "8c6f445d6cfdc208",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "33d5cdeeee2c9a99",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "Message",
+        "func": "msg.payload = \"[Running] Alogrithm 01\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "8c6f445d6cfdc208"
+            ]
+        ]
+    },
+    {
+        "id": "d8dfa9874797f9ce",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "운영 알고리즘 1번",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "72eeed8b8f461296",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "get Device Value",
+        "func": "msg.payload = global.get(\"ems\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "8f647e4cca7a45e3",
+                "508b85f610f7299b"
+            ]
+        ]
+    },
+    {
+        "id": "8f647e4cca7a45e3",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5e2f76d2c29fad1f",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "수전해 PCS (D010101)",
+        "info": "",
+        "x": 400,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "95778d899373353e",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "Hydro Electrolyzer (D010102)",
+        "info": "",
+        "x": 420,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "66302101045995f6",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "\n// HYDRO PCS FAULT \nconst P0101010002 = global.get(\"ems.device.data\").find(t => t.id === 'P0101010002');\n\n// HYDRO PCS Warning\nconst P0101010003 = global.get(\"ems.device.data\").find(t => t.id === 'P0101010003');\n\n\n// 오류 관제점 체크\nvar result = (P0101010002.value) + (P0101010003.value);\n\nvar test = test;\n\n\nmsg.payload = result;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "7ea6b1c8cd8c9bc4",
+                "1a3191bafd9b4210"
+            ]
+        ]
+    },
+    {
+        "id": "a8fdf0ae6a7e7321",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "msg.topic = \"D010102 들어왔습니다\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "3f6db408fb3dc0ba",
+                "a199a3a3b26270bd"
+            ]
+        ]
+    },
+    {
+        "id": "49e69f3ad1434a44",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "연료 전지 (D010103)",
+        "info": "",
+        "x": 390,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "738f3f4dd0d0c30a",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "msg.topic = \"D010103 들어왔습니다\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "4218bf17604d5bc3",
+                "75673d7508124440"
+            ]
+        ]
+    },
+    {
+        "id": "db23c84322bd5154",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "Master PCS (D010104)",
+        "info": "",
+        "x": 400,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "832bb224f3df7044",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "msg.topic = \"D010104 들어왔습니다\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 660,
+        "wires": [
+            [
+                "f0387081af0302d2",
+                "a07bac89a4d9b5b1"
+            ]
+        ]
+    },
+    {
+        "id": "da49624556e9e37c",
+        "type": "http request",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "/api/cmd/singleContainerAndSingleDeviceControl",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:8091/api/cmd/singleContainerAndSingleDeviceControl",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1090,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d1804426102482e",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "Header/Parameter",
+        "func": "msg.headers = {\n  \"Content-Type\" : \"application/json\"\n};\n\nmsg.payload = {\n    \"container_id\": \"C01\",\n    \"device\": {\n        \"device_id\": \"D010101\",\n        \"data\": [\n            { \"id\": \"P0101010092\", \"value\": 55 },\n            { \"id\": \"P0101010095\", \"value\": 1 }\n        ]\n    }\n\n};\n\nmsg.topic = \"[수전해 PCS(D010101)] 장비를 동작합니다.\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 260,
+        "wires": [
+            [
+                "da49624556e9e37c",
+                "939720c899ccd97c"
+            ]
+        ]
+    },
+    {
+        "id": "7ea6b1c8cd8c9bc4",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "6d1804426102482e"
+            ],
+            [
+                "78428e03a7177772"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "939720c899ccd97c",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "78428e03a7177772",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "Header/Parameter",
+        "func": "msg.headers = {\n  \"Content-Type\" : \"application/json\"\n};\n\nmsg.payload = {\n    \"container_id\": \"C01\",\n    \"device\": {\n        \"device_id\": \"D010101\",\n        \"data\": [\n            { \"id\": \"P0101010092\", \"value\": 99 },\n            { \"id\": \"P0101010095\", \"value\": 0 }\n        ]\n    }\n\n};\nmsg.topic = \"[수전해 PCS(D010101)] 장비를 정지합니다.\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 340,
+        "wires": [
+            [
+                "da49624556e9e37c",
+                "939720c899ccd97c"
+            ]
+        ]
+    },
+    {
+        "id": "d7fe7fee3fa86728",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "수전해 PCS 동작",
+        "info": "",
+        "x": 740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0700a5d538244aad",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "수전해 PCS 정지",
+        "info": "",
+        "x": 740,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3f6db408fb3dc0ba",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 420,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4218bf17604d5bc3",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 540,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f0387081af0302d2",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 660,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a199a3a3b26270bd",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "75673d7508124440",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "a07bac89a4d9b5b1",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "508b85f610f7299b",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "DEVICE",
+        "property": "payload.device.device_id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "D010101",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "D010102",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "D010103",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "D010104",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "D010105",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "D010106",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "D010107",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 7,
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "66302101045995f6"
+            ],
+            [
+                "a8fdf0ae6a7e7321"
+            ],
+            [
+                "738f3f4dd0d0c30a"
+            ],
+            [
+                "832bb224f3df7044"
+            ],
+            [
+                "8a8bf5af3a76c891"
+            ],
+            [
+                "3a5d3f3a7e125a42"
+            ],
+            [
+                "cdf6ab6040d82c7d"
+            ]
+        ]
+    },
+    {
+        "id": "1a3191bafd9b4210",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "314245b41831fd8a",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "H2 Storage (D010105)",
+        "info": "",
+        "x": 400,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "8a8bf5af3a76c891",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "msg.topic = \"D010105 들어왔습니다\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 780,
+        "wires": [
+            [
+                "54685dee12fef28d",
+                "3035ce4063c1cb60"
+            ]
+        ]
+    },
+    {
+        "id": "54685dee12fef28d",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 780,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3035ce4063c1cb60",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "28407bae507382cd",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "ESS (D010106)",
+        "info": "",
+        "x": 380,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "3a5d3f3a7e125a42",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "msg.topic = \"D010106 들어왔습니다\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "8366d4a3cdcbbe5b",
+                "4ba5ef7c3418a0d9"
+            ]
+        ]
+    },
+    {
+        "id": "8366d4a3cdcbbe5b",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 900,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4ba5ef7c3418a0d9",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "4d1efeee0fbc56c0",
+        "type": "comment",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "PLC (D010107)",
+        "info": "",
+        "x": 380,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "cdf6ab6040d82c7d",
+        "type": "function",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "조건 검사 ",
+        "func": "msg.topic = \"D010107 들어왔습니다\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1020,
+        "wires": [
+            [
+                "ac0b960f8efef9e4",
+                "6b4078723df65ba9"
+            ]
+        ]
+    },
+    {
+        "id": "ac0b960f8efef9e4",
+        "type": "switch",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 510,
+        "y": 1020,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6b4078723df65ba9",
+        "type": "debug",
+        "z": "ee5f2b8c76e18d1f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "782f0c581f8618af",
+        "type": "link in",
+        "z": "6702e8fe7d3328b0",
+        "name": "algorithm02",
+        "links": [
+            "cac80fbb472efe8f"
+        ],
+        "x": 35,
+        "y": 80,
+        "wires": [
+            [
+                "634745fb13f8ad08"
+            ]
+        ]
+    },
+    {
+        "id": "84666fb5918a9a0e",
+        "type": "debug",
+        "z": "6702e8fe7d3328b0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "634745fb13f8ad08",
+        "type": "function",
+        "z": "6702e8fe7d3328b0",
+        "name": "Message",
+        "func": "msg.payload = \"[Running] Alogrithm 02\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "84666fb5918a9a0e"
+            ]
+        ]
+    },
+    {
+        "id": "2a2d3f202391dd45",
+        "type": "comment",
+        "z": "6702e8fe7d3328b0",
+        "name": "운영 알고리즘 2번",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f55453d281d2b72a",
+        "type": "link in",
+        "z": "63cdb310c0d66cb9",
+        "name": "algorithm03",
+        "links": [
+            "541b8dce0cfc1929"
+        ],
+        "x": 35,
+        "y": 80,
+        "wires": [
+            [
+                "a6774b087a6ce1e9"
+            ]
+        ]
+    },
+    {
+        "id": "9a27223d35f9f80c",
+        "type": "debug",
+        "z": "63cdb310c0d66cb9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a6774b087a6ce1e9",
+        "type": "function",
+        "z": "63cdb310c0d66cb9",
+        "name": "Message",
+        "func": "msg.payload = \"[Running] Alogrithm 03\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "9a27223d35f9f80c"
+            ]
+        ]
+    },
+    {
+        "id": "a1e27d142e70a521",
+        "type": "comment",
+        "z": "63cdb310c0d66cb9",
+        "name": "운영 알고리즘 3번",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    }
+]
