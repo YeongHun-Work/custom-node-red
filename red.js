@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Copyright JS Foundation and other contributors, http://js.foundation
  *
@@ -97,78 +96,7 @@ if (parsedArgs.argv.remain.length > 0) {
 }
 
 process.env.NODE_RED_HOME = process.env.NODE_RED_HOME || __dirname;
-
-// if (parsedArgs.settings) {
-//     // User-specified settings file
-//     settingsFile = parsedArgs.settings;
-// } else if (parsedArgs.userDir && fs.existsSync(path.join(parsedArgs.userDir,"settings.js"))) {
-//     // User-specified userDir that contains a settings.js
-//     settingsFile = path.join(parsedArgs.userDir,"settings.js");
-// } else {
-//     if (fs.existsSync(path.join(process.env.NODE_RED_HOME,".config.json"))) {
-//         // NODE_RED_HOME contains user data - use its settings.js
-//         settingsFile = path.join(process.env.NODE_RED_HOME,"settings.js");
-//     } else if (process.env.HOMEPATH && fs.existsSync(path.join(process.env.HOMEPATH,".node-red",".config.json"))) {
-//         // Consider compatibility for older versions
-//         settingsFile = path.join(process.env.HOMEPATH,".node-red","settings.js");
-//     } else {
-//         var userDir = parsedArgs.userDir || path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH,".node-red");
-//         var userSettingsFile = path.join(userDir,"settings.js");
-//         if (fs.existsSync(userSettingsFile)) {
-//             // $HOME/.node-red/settings.js exists
-//             settingsFile = userSettingsFile;
-//         } else {
-//             var defaultSettings = path.join(__dirname,"settings.js");
-//             var settingsStat = fs.statSync(defaultSettings);
-//             if (settingsStat.mtime.getTime() <= settingsStat.ctime.getTime()) {
-//                 // Default settings file has not been modified - safe to copy
-//                 fs.copySync(defaultSettings,userSettingsFile);
-//                 settingsFile = userSettingsFile;
-//             } else {
-//                 // Use default settings.js as it has been modified
-//                 settingsFile = defaultSettings;
-//             }
-//         }
-//     }
-// }
-// if (parsedArgs.settings) {
-//     // User-specified settings file
-//     settingsFile = parsedArgs.settings;
-// } else if (parsedArgs.userDir && fs.existsSync(path.join(parsedArgs.userDir,"settings.js"))) {
-//     // User-specified userDir that contains a settings.js
-//     settingsFile = path.join(parsedArgs.userDir,"settings.js");
-// } else {
-//     if (fs.existsSync(path.join(process.env.NODE_RED_HOME,".config.json"))) {
-//         // NODE_RED_HOME contains user data - use its settings.js
-//         settingsFile = path.join(process.env.NODE_RED_HOME,"settings.js");
-//     } else if (process.env.HOMEPATH && fs.existsSync(path.join(process.env.HOMEPATH,".node-red",".config.json"))) {
-//         // Consider compatibility for older versions
-//         settingsFile = path.join(process.env.HOMEPATH,".node-red","settings.js");
-//     } else {
-//         var userDir = parsedArgs.userDir || path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH,".node-red");
-//         var userSettingsFile = path.join(userDir,"settings.js");
-//         if (fs.existsSync(userSettingsFile)) {
-//             // $HOME/.node-red/settings.js exists
-//             settingsFile = userSettingsFile;
-//         } else {
-//             var defaultSettings = path.join(__dirname,"settings.js");
-//             var settingsStat = fs.statSync(defaultSettings);
-//             if (settingsStat.mtime.getTime() <= settingsStat.ctime.getTime()) {
-//                 // Default settings file has not been modified - safe to copy
-//                 fs.copySync(defaultSettings,userSettingsFile);
-//                 settingsFile = userSettingsFile;
-//             } else {
-//                 // Use default settings.js as it has been modified
-//                 settingsFile = defaultSettings;
-//             }
-//         }
-//     }
-// }
-
-console.log("[DEBUG]"+ __dirname);
 settingsFile = path.join(__dirname,"lib","settings.js");
-console.log("[DEBUG]"+ settingsFile);
-
 
 try {
     var settings = require(settingsFile);

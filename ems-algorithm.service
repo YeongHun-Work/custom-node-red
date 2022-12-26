@@ -1,0 +1,17 @@
+#algorithm.service
+[Unit]
+Description = EMS-Algorithm Service
+After = network.target
+
+[Service]
+
+# use acount
+User = ems
+Group = ems
+
+# ${Node Path} ${Algorithm Source Path}
+ExecStart = /home/ems/.nvm/versions/node/v16.13.2/bin/node /home/ems/service/ems-algorithm/red.js
+
+[Install]
+WantedBy = multi-user.target
+Alias=algorithm.service
